@@ -1,0 +1,10 @@
+.MenuWrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cuenta {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px;
+}

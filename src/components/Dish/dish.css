@@ -1,0 +1,28 @@
+.dish {
+    position: relative;
+    margin-top: 25px;
+    border: 1px solid black;
+    width: 15%;
+    text-align: center;
+}
+
+.price {
+    font-weight: 600;
+}
+
+.quantity{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #1da1f2;
+    color: white;
+    bottom: 91%;
+    right: 91%;
+}
+
+.number {
+    position: relative;
+    top: 11%;
+    font-size: 15px;
+}

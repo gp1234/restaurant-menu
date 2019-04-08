@@ -1,0 +1,17 @@
+.Modal {
+    text-align: center;
+    background-color: white;
+    width: 500px;
+    height: 500px;
+    z-index: 500;
+    position: fixed;
+    left: 40%;
+    top: 20%;
+    border-radius: 6%;
+    transition: transform .3s ease-out;
+}
+
+.content {
+    margin-top: 10px;
+    font-size: 20px;
+}

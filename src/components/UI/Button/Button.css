@@ -1,0 +1,34 @@
+.btn {
+
+    outline: none;
+    border:none;
+    width: 100%;
+    padding: 10px 8px;
+    cursor:pointer;
+    transition: all .2s ease-out;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+.green {
+    background-color: green;
+    color: white;
+}
+
+
+.red {
+    background-color: red;
+    color: white;
+}
+
+
+.small {
+    width: 50%;
+}
+
+.blue {
+    background-color: yellow;
+    color:purple;
+}
