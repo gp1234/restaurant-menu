@@ -10,10 +10,10 @@ class MenuBuilder extends Component {
     
     state = {
         dishes : [
-            {name: 'Salad', description: 'Onion/Salad', price: 13},
-            {name: 'Burrito', description: 'Onion/Salad', price: 15},
-            {name: 'Taco', description: 'Onion/Salad', price: 11.8},
-            {name: 'Coffe', description: 'Onion/Salad', price: 1.2},
+            {id: 1, name: 'Salad', description: 'Onion/Salad', price: 13},
+            {id: 2, name: 'Burrito', description: 'Onion/Salad', price: 15},
+            {id: 3, name: 'Taco', description: 'Onion/Salad', price: 11.8},
+            {id: 4, name: 'Coffe', description: 'Onion/Salad', price: 1.2},
         ],
         order: [],
         subtotal: [],
@@ -101,6 +101,7 @@ class MenuBuilder extends Component {
     }
 
     render() {
+        console.log(this.props)
         let sub = this.state.subtotal.map(element => (
             <li className="cuenta">     
                 <span><strong>Item : </strong>{element.name}</span>
@@ -110,6 +111,9 @@ class MenuBuilder extends Component {
             </li>
         ))
         return (
+            <div className="container">
+            <h1>Vegan Menus</h1>
+            <hr/>
             <div className="MenuWrapper">
                 <Modal showModal={this.state.checkout} closed={this.closeModal}> 
                     <ul>
@@ -122,6 +126,8 @@ class MenuBuilder extends Component {
                 <Menu  quantity={this.state.quantity} items={this.state.dishes} reditem={(price) => this.reduceOrder(price)} sumItem={(type) => this.sumOrder(type)}/>
                 <OrderSumary total={this.state.totalPrice} checkout={this.checkoutOrder}/>
             </div>
+        </div> 
+
         );
     }
 };

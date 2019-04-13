@@ -5,8 +5,9 @@
     height: 500px;
     z-index: 500;
     position: fixed;
-    left: 40%;
-    top: 20%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) !important;
     border-radius: 6%;
     transition: transform .3s ease-out;
 }

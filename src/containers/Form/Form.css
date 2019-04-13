@@ -1,0 +1,22 @@
+.formContainer
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+    text-align: center;
+    flex-direction: column
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    
+}
+
+.title-form {
+    font-size: 2rem;
+
+    margin-bottom: 4rem;
+}
