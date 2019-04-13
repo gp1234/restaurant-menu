@@ -9,7 +9,8 @@ const modal = (props) => {
                 <Backdrop show={props.showModal} clicked={props.closed} />
                 <div className="Modal" style= {{
                     opacity: props.showModal ? 1 : 0,
-                    transform: props.showModal ? 'translateY(0px)' : 'translateY(20vh)'
+                    transform: props.showModal ? 'translateY(0px)' : 'translateY(20vh)',
+                    display: props.showModal ? 'block' : ' none'
                 }}>
                         <h1>Checkout</h1>
                         <hr></hr>

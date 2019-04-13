@@ -1,0 +1,25 @@
+.checkout-panel {
+width: 100%;
+display:grid;
+grid-template-columns:  1fr 35rem  15rem 1fr;
+grid-template-rows: auto 5rem ;
+grid-column-gap: 1rem;
+grid-row-gap: 1rem;
+
+margin-top: 2rem;
+}
+
+.checkout__list{
+    grid-column: 2 / 3;
+    grid-row: 1 / -1;
+}
+
+.checkout__payment {
+    grid-column: 3 / 4;
+    grid-row: 1 / 1;
+}
+
+.checkout__recordatorio {
+    grid-column: 3 / 4;
+    grid-row: 2 / -1;
+}

@@ -2,6 +2,9 @@ import React, {Component}  from 'react';
 import Menu from '../../components/Menu/Menu';
 import OrderSumary from '../../components/OrderSummary/OrderSummary'
 import Modal from '../../components/UI/Modal/ModalContent/Modal'
+import Button from '../../components/UI/Button/Button'
+import Checkout from '../Checkout/checkout'
+import { withRouter } from 'react-router-dom';
 
 import './MenuBuilder.css'
 
@@ -100,8 +103,12 @@ class MenuBuilder extends Component {
         this.setState({checkout: false})
     }
 
+    pay = () => {
+        this.props.history.replace('/checkout')
+    }
+
     render() {
-        console.log(this.props)
+
         let sub = this.state.subtotal.map(element => (
             <li className="cuenta">     
                 <span><strong>Item : </strong>{element.name}</span>
@@ -112,7 +119,7 @@ class MenuBuilder extends Component {
         ))
         return (
             <div className="container">
-            <h1>Vegan Menus</h1>
+            <h1>Mexican Menu</h1>
             <hr/>
             <div className="MenuWrapper">
                 <Modal showModal={this.state.checkout} closed={this.closeModal}> 
@@ -121,15 +128,15 @@ class MenuBuilder extends Component {
                     </ul>
                     <hr/>
                     <strong>Total: </strong> <p>$ {this.state.totalPrice.toFixed(2)}</p>
-
+                    {this.state.totalPrice > 0 ? (<Button btnType="green noBig" clicked={this.pay}>ORDER</Button>)  : ''}
                 </Modal>
                 <Menu  quantity={this.state.quantity} items={this.state.dishes} reditem={(price) => this.reduceOrder(price)} sumItem={(type) => this.sumOrder(type)}/>
                 <OrderSumary total={this.state.totalPrice} checkout={this.checkoutOrder}/>
             </div>
+               
         </div> 
-
         );
     }
 };
 
-export default MenuBuilder;
+export default withRouter(MenuBuilder);

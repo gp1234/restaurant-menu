@@ -6,8 +6,7 @@ import './dish.css';
 class Dish extends Component {
 
     componentWillMount() {
-        console.log("componentdidmount")
-        console.log(this.props)
+
     }
     render() {
         let item = {name: this.props.name, price: this.props.price}
@@ -15,7 +14,11 @@ class Dish extends Component {
             <div className="dish">
     
                 <div className="quantity"><span className="number">{this.props.qty[this.props.name] || 0}</span></div>
-                <Link to={'/dish/' + this.props.id}> <h1>{this.props.name}</h1> </Link>
+                <Link to={{
+                    pathname: '/dish/' + this.props.id,
+                    search: '?delcious=5',
+                    hash: '#form'
+                }}> <h1>{this.props.name}</h1> </Link>
                 <p className="price">$ {this.props.price}</p>
                 <Button btnType="red" clicked={() => this.props.sumItm(item)}>SELECT</Button>
                 <Button btnType="blue" clicked={()=> this.props.rditem(item)}>REMOVE</Button>
