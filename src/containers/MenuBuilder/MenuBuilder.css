@@ -9,6 +9,13 @@
     margin: 10px;
 }
 
+.cuenta span {
+    
+        width: 25%;
+        text-align: left;
+    
+}
+
 .container {
     width: 80%;
     margin: 0 auto;

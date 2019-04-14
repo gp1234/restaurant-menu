@@ -7,7 +7,7 @@ import './Menu.css';
 
 const menu = (props) => {
     const menu = props.items.map((dish, key) => {
-        return ( <Dish id={dish.id} key={key} name={dish.name} price={dish.price} sumItm={props.sumItem} rditem={props.reditem} qty={props.quantity}></Dish>);
+        return ( <Dish id={dish.id} key={key} name={dish.name} price={dish.price} ></Dish>);
     })
     return (
     <div className="menu">
