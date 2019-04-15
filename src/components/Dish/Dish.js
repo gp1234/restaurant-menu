@@ -4,7 +4,7 @@ import Button from  '../../components/UI/Button/Button'
 import './dish.css';
 
 import { connect } from 'react-redux';
-import * as actionTypes from '../../store/actions'
+import * as actionCreators from '../../store/actions/index'
 
 class Dish extends Component {
 
@@ -36,8 +36,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAddItem: (item) => dispatch({type: actionTypes.INCREMENT_ITEM, item}),
-        onReduceItem: (item) => dispatch({type: actionTypes.REDUCE_ITEM, item})
+        onAddItem: (item) => dispatch(actionCreators.onAddItem(item)),
+        onReduceItem: (item) => dispatch(actionCreators.reduceItem(item))
     }
 }
 

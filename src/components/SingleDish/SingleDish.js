@@ -3,7 +3,7 @@ import './SingleDish.css';
 import Input from '../../components/UI/Input/input'
 
 import { connect } from 'react-redux';
-import * as actionTypes from '../../store/actions'
+import * as actionCreators from '../../store/actions/index'
 
 const singleDish  = (props) => {
     const dish = props.dishes.find(dish => dish.id == props.match.params.id);
@@ -29,8 +29,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAddItem: (item) => dispatch({type: actionTypes.INCREMENT_ITEM, item}),
-        onReduceItem: (item) => dispatch({type: actionTypes.REDUCE_ITEM, item})
+        onAddItem: (item) => dispatch(actionCreators.onAddItem(item)),
+        onReduceItem: (item) => dispatch(actionCreators.reduceItem(item))
     }
 }
 

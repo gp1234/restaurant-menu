@@ -3,7 +3,7 @@ import Button from  '../../components/UI/Button/Button'
 import './OrderSummary.css';
 
 import { connect } from 'react-redux';
-import * as actionTypes from '../../store/actions';
+import * as actionCreators from '../../store/actions/index';
 
 const OrderSummary = (props) => {
     return (
@@ -24,7 +24,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onCheckout: () => dispatch({type: actionTypes.CHECKOUT_ORDER})
+        onCheckout: () => dispatch(actionCreators.onCheckout())
     }
 }
 
