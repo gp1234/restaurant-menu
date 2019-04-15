@@ -1,11 +1,10 @@
 .checkout-panel {
 width: 100%;
 display:grid;
-grid-template-columns:  1fr 35rem  15rem 1fr;
+grid-template-columns:  1fr 35rem  20rem 1fr;
 grid-template-rows: auto 5rem ;
-grid-column-gap: 1rem;
+grid-column-gap: 3rem;
 grid-row-gap: 1rem;
-
 margin-top: 2rem;
 }
 
@@ -22,4 +21,41 @@ margin-top: 2rem;
 .checkout__recordatorio {
     grid-column: 3 / 4;
     grid-row: 2 / -1;
+    background-color: #f1faff;
+    padding: 2rem;
+}
+
+.checkout__dish-title {
+    margin: 0;
+}
+
+.checkout__dish-price {
+    color: red;
+}
+.checkout__dish-img {
+    height: 100px;
+}
+.checkout__dish__container-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.checkout__dish__container {
+    display:flex;
+}
+
+.checkout__dish__information {
+   margin-left: 2rem; 
+}
+
+
+.checkout__payment--h2 {
+    margin: 0;
+}
+
+.checkout__payment-total {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
 }

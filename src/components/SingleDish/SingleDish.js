@@ -1,14 +1,37 @@
-import React from 'react'
+import React from 'react';
+import './SingleDish.css';
+import Input from '../../components/UI/Input/input'
+
+import { connect } from 'react-redux';
+import * as actionTypes from '../../store/actions'
 
 const singleDish  = (props) => {
-
+    const dish = props.dishes.find(dish => dish.id == props.match.params.id);
     return (
-        <div>
-            <h1>The Dishes</h1>
-            <p>Id : {props.match.params.id}</p>
+        <div className="single-dish">
+            <img className="single-dish__img" src={dish.img} alt="Delicious Dish"/>
+            <div className="single-dish__information">
+                <h1>{dish.name}</h1>
+                <p>{dish.description}</p>
+                <Input res={() => props.onReduceItem({ name: dish.name, price: dish.price})} sum={() =>  props.onAddItem({ name: dish.name , price : dish.price } )} val={props.quantity[dish.name] || 0} elementType="controls" />
+            </div>
         </div>
         
     );
 }
 
-export default singleDish;
+const mapStateToProps = state => {
+    return {
+        quantity : state.quantity,
+        dishes: state.dishes
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onAddItem: (item) => dispatch({type: actionTypes.INCREMENT_ITEM, item}),
+        onReduceItem: (item) => dispatch({type: actionTypes.REDUCE_ITEM, item})
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(singleDish);

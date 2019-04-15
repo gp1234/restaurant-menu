@@ -10,7 +10,6 @@ class Dish extends Component {
 
     render() {
         let item = {name: this.props.name, price: this.props.price}
-        console.log(this.props.rquantity)
         return (
             <div className="dish">
                 

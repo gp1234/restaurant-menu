@@ -2,15 +2,15 @@ import * as actionTypes from './actions';
 
 const initialState = {
     dishes : [
-        {id: 1, name: 'Salad', description: 'Onion/Salad', price: 13},
-        {id: 2, name: 'Burrito', description: 'Onion/Salad', price: 15},
-        {id: 3, name: 'Taco', description: 'Onion/Salad', price: 11.8},
-        {id: 4, name: 'Coffe', description: 'Onion/Salad', price: 1.2}
+        {id: 1, name: 'Salad', description: 'A salad is a dish consisting of a mixture of small pieces of food, usually vegetables.', price: 13, img: 'https://source.unsplash.com/OzBLe_Eg1mg'},
+        {id: 2, name: 'Burrito', description: 'A burrito is a dish in Mexican and Tex-Mex cuisine that consists of a flour tortilla with various other ingredients.', price: 15, img: 'https://source.unsplash.com/wYwbs_bsmaM'},
+        {id: 3, name: 'Taco', description: 'A taco is a traditional Mexican dish consisting of a corn or wheat tortilla folded or rolled around a filling.', price: 11.8, img: 'https://source.unsplash.com/2hBUvhe81mU'},
+        {id: 4, name: 'Coffe', description: 'Coffee is a brewed drink prepared from roasted coffee beans, the seeds of berries from certain Coffea species. ', price: 1.2, img: 'https://source.unsplash.com/Dt9kdskj6ek'}
     ],
     order: [],
     subtotal: [],
     totalPrice: 0,
-    checkout: false,
+    cartReady: false,
     quantity: {}
 }
 
@@ -40,7 +40,10 @@ const reducer = (state = initialState, action ) => {
                 quantity: nTotal
             }
         case actionTypes.REDUCE_ITEM:
-            
+            if (Object.entries(state.quantity).length === 0) return {
+                ...state,
+                cartReady: false
+            }
             if(state.quantity[action.item.name] === undefined) return state;
             let rOrders = [...state.order];
             let indexOrder = rOrders.map(el => el.name).indexOf(action.item.name)
@@ -88,10 +91,10 @@ const reducer = (state = initialState, action ) => {
                     name: key, price: cTotal[key] * prices[key], quantity: cTotal[key]
                  }
             })
-            console.log(subtotalState + " state ")
             return {
                 ...state,
-                subtotal: subtotalState
+                subtotal: subtotalState,
+                cartReady: true
             }
     }
     return state;

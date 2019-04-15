@@ -29,8 +29,8 @@ class MenuBuilder extends Component {
     }
 
     render() {
-        let sub = this.props.subtotal.map(element => (
-            <li className="cuenta">     
+        let sub = this.props.subtotal.map( (element,key) => (
+            <li className="cuenta" key={key}>     
                 <span><strong>Item : </strong>{element.name}</span>
                 <span><strong>Quantity: </strong>{element.quantity}  </span>
                 <span><strong>Total: </strong>{element.price.toFixed(2)}</span>

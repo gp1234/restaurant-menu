@@ -12,3 +12,23 @@ label {
     display: block;
     font-weight: bold;
 }
+
+.controlsContainer {
+    display: flex;
+    width: 10rem;
+}
+
+.controlsContainer input {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+.controlsContainer .minus{
+
+}
+.controlsContainer .number{
+
+}
+.controlsContainer .plus{
+
+}

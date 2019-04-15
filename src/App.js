@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {  BrowserRouter as Router, Route, Link, Switch, NavLink, Redirect} from 'react-router-dom';
-
+import { connect  } from 'react-redux';
 
 import SingleDish from './components/SingleDish/SingleDish'
 import MenuBuilder from './containers/MenuBuilder/MenuBuilder'
@@ -15,7 +15,7 @@ import './App.css';
 
 
 class App extends Component {
-  
+
   render() {
     return (
       <>
@@ -26,13 +26,15 @@ class App extends Component {
               <li><NavLink exact to="/">Home</NavLink></li>
               <li><NavLink to="/about-us">About Us</NavLink></li>
               <li><NavLink to="/form">Contact Us</NavLink></li>
+              {this.props.cart ?  (<li><NavLink to="/checkout">Checkout</NavLink></li>) : null}
+             
             </ul>
         </header>
         <Switch>
           <Route path="/about-us"  render={AboutUs} /> 
           <Route path="/form"  component={Form} /> 
           <Route path="/dish/:id" component={SingleDish} />
-          <Route path="/checkout" component={Checkout} />
+          {this.props.cart ? <Route path="/checkout" component={Checkout}/> : null}
           <Route path="/index"   component={MenuBuilder} />
 
           <Redirect exact from="/" to="index"/>
@@ -44,4 +46,10 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    cart: state.cartReady
+  }
+}
+
+export default connect(mapStateToProps)(App);

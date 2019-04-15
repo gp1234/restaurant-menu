@@ -33,6 +33,14 @@
     color:purple;
 }
 
+.rounded {
+    border-radius: 2rem;
+    padding: 17px 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
 .noBig {
     transition: none;
 }

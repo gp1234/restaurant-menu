@@ -1,0 +1,22 @@
+.single-dish {
+    margin-top: 2rem;
+    text-align: left;
+    display: flex;
+    margin-left: 25%;
+    margin-right: 25%
+}
+
+.single-dish__img {
+    width: 359px;
+    object-fit: contain;
+}
+
+.single-dish__information{
+    align-self: center;
+    margin-left: 10%;
+}
+
+.single-dish__information h1 {
+    font-size: 2.5rem;
+    text-align: left;
+}
